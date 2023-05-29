@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.scss';
+import Navigation from './components/Navigation/Navigation';
 
 function App() {
   return (
-    <div className="App">
-      <h1>Project Start</h1>
+    <div className="main-container">
+        <Navigation />
     </div>
   );
 }
