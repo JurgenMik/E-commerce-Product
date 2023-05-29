@@ -1,0 +1,52 @@
+@import '../../variables/variables.scss';
+
+.main-nav-container {
+  width: 75%;
+  height: 7.5rem;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid $GrayishBlue;
+}
+
+.links-container {
+  width: 35%;
+  margin-left: 1rem;
+  display: flex;
+  justify-content: space-evenly;
+  a {
+    text-decoration: none;
+    color: $DarkGrayishBlue;
+    font-family: Kumbh Sans;
+    &:hover{
+      color: $DarkBlue;
+    }
+  }
+}
+
+.interactive-container {
+  width: 25%;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-left: auto;
+  float: right;
+  transition: outline 0.3s;
+  img {
+    width: 3rem;
+    height: 3rem;
+    margin-left: 3rem;
+    border-radius: 50%;
+    &:hover {
+      outline: 2px solid $Orange;
+    }
+  }
+  #cart {
+    font-size: 1.45rem;
+    color: $DarkGrayishBlue;
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}
