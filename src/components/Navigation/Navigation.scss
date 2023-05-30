@@ -11,18 +11,27 @@
 }
 
 .links-container {
+  position: relative;
   width: 35%;
+  height: 100%;
   margin-left: 1rem;
+  align-items: center;
   display: flex;
   justify-content: space-evenly;
   a {
     text-decoration: none;
     color: $DarkGrayishBlue;
     font-family: Kumbh Sans;
-    &:hover{
+    &:hover {
       color: $DarkBlue;
     }
   }
+}
+
+#hovered {
+  margin-top: 3.25rem;
+  padding-bottom: 3rem;
+  border-bottom: 5px solid $Orange;
 }
 
 .interactive-container {
