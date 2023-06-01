@@ -3,6 +3,7 @@ import './Navigation.scss';
 import Logo from '../assets/logo.svg';
 import Avatar from '../assets/image-avatar.png';
 import {BsCart3} from 'react-icons/bs';
+import {anchorTitles} from "../../utils";
 
 function Navigation() {
 
@@ -19,14 +20,6 @@ function Navigation() {
     const handleResetHoveredState = () => {
         setHovered('');
     }
-
-    const anchorTitles = [
-        "Learn more about our collections",
-        "Discover our men's section",
-        "Explore our women's section",
-        "Find out more about our company",
-        "Contact us for any inquiries"
-    ]
 
     return (
         <div className="main-nav-container">
