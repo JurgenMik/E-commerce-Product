@@ -5,6 +5,7 @@ import Avatar from '../assets/image-avatar.png';
 import {BsCart3} from 'react-icons/bs';
 import {GiHamburgerMenu} from 'react-icons/gi';
 import {IoMdClose} from 'react-icons/io';
+import {anchorTitles} from "../../utils";
 
 function MobileNavigation() {
 
@@ -17,14 +18,6 @@ function MobileNavigation() {
     const handleSidebarMenuClose = () => {
         setOpenSidebarMenu(false);
     }
-
-    const anchorTitles = [
-        "Learn more about our collections",
-        "Discover our men's section",
-        "Explore our women's section",
-        "Find out more about our company",
-        "Contact us for any inquiries"
-    ]
 
     return (
         <div className="main-mobileNav-container">
