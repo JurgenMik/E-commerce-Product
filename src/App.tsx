@@ -29,7 +29,13 @@ function App() {
                     </p>
                 </div>
                 <div className="price">
-
+                    <div className="after-discount">
+                        <h1>$125.00</h1>
+                        <h1 id="discount">50%</h1>
+                    </div>
+                    <h1 id="original">
+                        $250.00
+                    </h1>
                 </div>
                 <div className="interaction">
 

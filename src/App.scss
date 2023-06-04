@@ -21,7 +21,7 @@
     font-family: Kumbh Sans;
     margin-left: 5rem;
     .heading {
-      height: 40%;
+      height: 18rem;
       width: 65%;
       margin-top: 9rem;
       #enterprise {
@@ -38,6 +38,37 @@
       p {
         color: $DarkGrayishBlue;
       }
+    }
+  }
+  .price {
+    display: flex;
+    flex-direction: column;
+    margin-top: -3.75rem;
+    .after-discount {
+      width: 10rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      h1 {
+        font-size: 1.75rem;
+      }
+      #discount {
+        width: 2.75rem;
+        height: 1.5rem;
+        border-radius: 0.25rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 0.95rem;
+        color: $Orange;
+        background: $GlowingOrange;
+      }
+    }
+    #original {
+      font-size: 1.05rem;
+      text-decoration: line-through;
+      color: $GrayishBlue;
+      margin-top: -0.75rem;
     }
   }
 }
