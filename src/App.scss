@@ -71,4 +71,51 @@
       margin-top: -0.75rem;
     }
   }
+  .interaction {
+    width: 75%;
+    height: 3rem;
+    display: flex;
+    margin-top: 1rem;
+    .quantity {
+      width: 9rem;
+      background: $LightGrayishBlue;
+      border-radius: 0.50rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      #plus-minus {
+        padding: 0.75rem;
+        color: $Orange;
+        font-size: 0.85rem;
+        &:hover {
+          cursor: pointer;
+        }
+      }
+      span {
+        font-weight: 700;
+      }
+    }
+    button {
+      width: 15rem;
+      margin-left: 1rem;
+      border-radius: 0.50rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border: none;
+      background: $Orange;
+      color: $White;
+      font-family: Kumbh Sans;
+      font-size: 0.95rem;
+      font-weight: 700;
+      box-shadow: 2px 5px 10px 2px $GlowingOrange;
+      #addToCart {
+        font-size: 1.15rem;
+        margin-right: 1rem;
+      }
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
 }

@@ -2,6 +2,8 @@ import React from 'react';
 import './App.scss';
 import Navigation from './components/Navigation/Navigation';
 import MobileNavigation from './components/MobileNavigation/MobileNavigation';
+import {FaMinus, FaPlus} from 'react-icons/fa';
+import {BsCart3} from 'react-icons/bs';
 
 function App() {
 
@@ -38,7 +40,19 @@ function App() {
                     </h1>
                 </div>
                 <div className="interaction">
-
+                    <div className="quantity">
+                        <FaMinus
+                            id="plus-minus"
+                        />
+                        <span>0</span>
+                        <FaPlus
+                            id="plus-minus"
+                        />
+                    </div>
+                    <button>
+                        <BsCart3 id="addToCart" />
+                        Add to cart
+                    </button>
                 </div>
             </div>
         </div>
