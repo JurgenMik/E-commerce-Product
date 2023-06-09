@@ -60,14 +60,14 @@ function App() {
                     <div className="quantity">
                         <FaMinus
                             id="plus-minus"
-                            onClick={e =>
+                            onClick={() =>
                                 handleProductCounterChange('decrement')
                             }
                         />
                         <span>{counter}</span>
                         <FaPlus
                             id="plus-minus"
-                            onClick={e =>
+                            onClick={() =>
                                 handleProductCounterChange('increment')
                             }
                         />
