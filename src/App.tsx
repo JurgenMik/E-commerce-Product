@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import './App.scss';
 import Navigation from './components/Navigation/Navigation';
 import MobileNavigation from './components/MobileNavigation/MobileNavigation';
@@ -6,6 +6,23 @@ import {FaMinus, FaPlus} from 'react-icons/fa';
 import {BsCart3} from 'react-icons/bs';
 
 function App() {
+
+    const [counter, setProductCounter] = useState<number>(0);
+
+    const handleProductCounterChange = (actionType: string) => {
+            switch (actionType) {
+                case 'increment': {
+                    setProductCounter(counter + 1);
+                    break;
+                }
+                case 'decrement': {
+                    if (counter > 0 ) {
+                        setProductCounter(counter - 1);
+                    }
+                    break;
+                }
+            }
+    }
 
     const screen = window.innerWidth <= 395;
 
@@ -43,10 +60,16 @@ function App() {
                     <div className="quantity">
                         <FaMinus
                             id="plus-minus"
+                            onClick={e =>
+                                handleProductCounterChange('decrement')
+                            }
                         />
-                        <span>0</span>
+                        <span>{counter}</span>
                         <FaPlus
                             id="plus-minus"
+                            onClick={e =>
+                                handleProductCounterChange('increment')
+                            }
                         />
                     </div>
                     <button>
