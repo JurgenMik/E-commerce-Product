@@ -4,20 +4,25 @@ import Navigation from './components/Navigation/Navigation';
 import MobileNavigation from './components/MobileNavigation/MobileNavigation';
 import {FaMinus, FaPlus} from 'react-icons/fa';
 import {BsCart3} from 'react-icons/bs';
+import {Product} from "./interface";
 
 function App() {
 
-    const [counter, setProductCounter] = useState<number>(0);
+    const [product, setProductProps] = useState<Product>({
+        product_id: 'Fall Limited Edition Sneakers',
+        price: 125,
+        quantity: 0,
+    });
 
     const handleProductCounterChange = (actionType: string) => {
             switch (actionType) {
                 case 'increment': {
-                    setProductCounter(counter + 1);
+                    setProductProps({...product, quantity: ++product.quantity});
                     break;
                 }
                 case 'decrement': {
-                    if (counter > 0 ) {
-                        setProductCounter(counter - 1);
+                    if (product.quantity > 0) {
+                        setProductProps({...product, quantity: --product.quantity});
                     }
                     break;
                 }
@@ -64,7 +69,7 @@ function App() {
                                 handleProductCounterChange('decrement')
                             }
                         />
-                        <span>{counter}</span>
+                        <span>{product.quantity}</span>
                         <FaPlus
                             id="plus-minus"
                             onClick={() =>
