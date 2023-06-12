@@ -4,8 +4,10 @@ import Logo from '../assets/logo.svg';
 import Avatar from '../assets/image-avatar.png';
 import {BsCart3} from 'react-icons/bs';
 import {anchorTitles} from "../../utils";
+import {Product} from "../../interface";
+import {cartNotificationStyle} from "../../utils";
 
-function Navigation() {
+function Navigation({cart}: { cart: Product[] }) {
 
     const [hoveredLink, setHovered] = useState<string>();
 
@@ -45,6 +47,11 @@ function Navigation() {
                 </a>
             </div>
             <div className="interactive-container">
+                {cart.length !== 0 &&
+                    <span style={cartNotificationStyle}>
+                        {cart.length}
+                    </span>
+                }
                 <BsCart3
                     id="cart"
                 />

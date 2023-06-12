@@ -6,8 +6,10 @@ import {BsCart3} from 'react-icons/bs';
 import {GiHamburgerMenu} from 'react-icons/gi';
 import {IoMdClose} from 'react-icons/io';
 import {anchorTitles} from "../../utils";
+import {Product} from "../../interface";
+import {cartNotificationStyle} from "../../utils";
 
-function MobileNavigation() {
+function MobileNavigation({cart}: { cart: Product[] }) {
 
     const [openSidebarMenu, setOpenSidebarMenu] = useState<boolean>(false);
 
@@ -58,6 +60,11 @@ function MobileNavigation() {
                 />
             </div>
             <div className="mobileInteractive-container">
+                {cart.length !== 0 &&
+                    <span style={cartNotificationStyle}>
+                        {cart.length}
+                    </span>
+                }
                 <BsCart3
                     id="cart"
                 />

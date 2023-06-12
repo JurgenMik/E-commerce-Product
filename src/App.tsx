@@ -8,6 +8,7 @@ import {Product} from "./interface";
 
 function App() {
 
+    const [cart, setCartItems] = useState<Product[]>([]);
     const [product, setProductProps] = useState<Product>({
         product_id: 'Fall Limited Edition Sneakers',
         price: 125,
@@ -29,14 +30,26 @@ function App() {
             }
     }
 
+    const handleAddProductToCart = () => {
+        const isAlreadyAdded = cart.find((products: Product) => products.product_id === product.product_id);
+
+        if (product.quantity && !isAlreadyAdded) {
+            setCartItems([...cart, product]);
+        }
+    }
+
     const screen = window.innerWidth <= 395;
 
   return (
     <div className="main-container">
         {screen ?
-            <MobileNavigation />
+            <MobileNavigation
+                cart={cart}
+            />
             :
-            <Navigation />
+            <Navigation
+                cart={cart}
+            />
         }
         <div className="product-content-container">
             <div className="product-images">
@@ -77,7 +90,7 @@ function App() {
                             }
                         />
                     </div>
-                    <button>
+                    <button onClick={handleAddProductToCart}>
                         <BsCart3 id="addToCart" />
                         Add to cart
                     </button>
