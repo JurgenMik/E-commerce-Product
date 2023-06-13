@@ -1,0 +1,98 @@
+@import '../../variables/variables.scss';
+
+.main-cart-container {
+  position: absolute;
+  background: $White;
+  font-family: Kumbh Sans;
+  border-radius: 0.25rem;
+  box-shadow: rgba(0, 0, 0, 0.19) 0 8px 16px, rgba(0, 0, 0, 0.1) 0 6px 6px;
+  height: 15rem;
+  display: flex;
+  flex-direction: column;
+  .cart-header {
+    width: 100%;
+    height: 25%;
+    border-bottom: 1px solid $GrayishBlue;
+    display: flex;
+    align-items: center;
+    h1 {
+      font-size: 1rem;
+      margin-left: 1rem;
+    }
+  }
+  #cart-empty {
+    height: 75%;
+    display: flex;
+    justify-content: center;
+    font-size: 1.15rem;
+    align-items: center;
+    color: $DarkGrayishBlue;
+  }
+  .main-item-container {
+    width: 90%;
+    min-height: 60%;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    .item-container {
+      display: flex;
+      align-items: center;
+      height: 3rem;
+      width: 100%;
+      margin-top: 1.5rem;
+      .cart-item-thumbnail {
+        width: 15%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        img {
+          width: 3.5rem;
+          height: 3.5rem;
+          border-radius: 0.35rem;
+        }
+      }
+      .cart-details {
+        display: flex;
+        flex-direction: column;
+        width: 80%;
+        margin-left: 1.25rem;
+        color: $DarkGrayishBlue;
+        p {
+          font-size: 1rem;
+          margin-top: -0.25rem;
+        }
+        h1 {
+          font-size: 1rem;
+          font-weight: unset;
+        }
+        .price {
+          display: flex;
+          #sum {
+            margin-left: 0.25rem;
+            font-weight: 700;
+            color: black;
+          }
+        }
+      }
+      #item-delete {
+        color: $GrayishBlue;
+        font-size: 1.15rem;
+      }
+    }
+    button {
+      margin-top: 1.5rem;
+      width: 100%;
+      padding: 0.75rem;
+      border-radius: 0.50rem;
+      border: none;
+      background: $Orange;
+      font-family: Kumbh Sans;
+      font-weight: 700;
+      font-size: 1rem;
+      color: $White;
+      &:hover {
+        cursor: pointer;
+      }
+    }
+  }
+}

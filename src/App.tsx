@@ -5,12 +5,14 @@ import MobileNavigation from './components/MobileNavigation/MobileNavigation';
 import {FaMinus, FaPlus} from 'react-icons/fa';
 import {BsCart3} from 'react-icons/bs';
 import {Product} from "./interface";
+import Thumbnail from './components/assets/product/image-product-1-thumbnail.jpg';
 
 function App() {
 
     const [cart, setCartItems] = useState<Product[]>([]);
     const [product, setProductProps] = useState<Product>({
         product_id: 'Fall Limited Edition Sneakers',
+        product_thumbnail: Thumbnail,
         price: 125,
         quantity: 0,
     });

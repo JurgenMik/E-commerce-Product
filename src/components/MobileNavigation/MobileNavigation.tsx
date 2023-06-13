@@ -5,13 +5,14 @@ import Avatar from '../assets/image-avatar.png';
 import {BsCart3} from 'react-icons/bs';
 import {GiHamburgerMenu} from 'react-icons/gi';
 import {IoMdClose} from 'react-icons/io';
-import {anchorTitles} from "../../utils";
 import {Product} from "../../interface";
-import {cartNotificationStyle} from "../../utils";
+import {cartNotificationStyle, anchorTitles} from "../../utils";
+import Cart from "../Cart/Cart";
 
 function MobileNavigation({cart}: { cart: Product[] }) {
 
     const [openSidebarMenu, setOpenSidebarMenu] = useState<boolean>(false);
+    const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
 
     const handleSidebarMenuPopup = () => {
         setOpenSidebarMenu(true);
@@ -19,6 +20,10 @@ function MobileNavigation({cart}: { cart: Product[] }) {
 
     const handleSidebarMenuClose = () => {
         setOpenSidebarMenu(false);
+    }
+
+    const handleOpenCartModal = () => {
+        setIsCartOpen(!isCartOpen);
     }
 
     return (
@@ -67,11 +72,18 @@ function MobileNavigation({cart}: { cart: Product[] }) {
                 }
                 <BsCart3
                     id="cart"
+                    onClick={handleOpenCartModal}
                 />
                 <img
+                    id="avatar"
                     src={Avatar}
                     alt="profile"
                 />
+                {isCartOpen &&
+                    <Cart
+                        cart={cart}
+                    />
+                }
             </div>
         </div>
     )

@@ -10,8 +10,8 @@ export const anchorTitles = [
 
 export const cartNotificationStyle: CSSProperties = {
     position: "absolute",
-    top:  window.innerWidth <= 395 ? "0.20rem" : "0.50rem",
-    right: window.innerWidth <= 395 ? "3.75rem" : "5.75rem",
+    top: window.innerWidth <= 395 ? "1rem" : "0.50rem",
+    right: window.innerWidth <= 395 ? "5.25rem" : "5.75rem",
     width: window.innerWidth <= 395 ? "0.30rem" : "0.55rem",
     paddingRight: "0.30rem",
     paddingLeft: "0.30rem",
@@ -19,5 +19,11 @@ export const cartNotificationStyle: CSSProperties = {
     borderRadius: "1rem",
     textAlign: "center",
     backgroundColor: "hsl(26, 100%, 55%)",
-    color: "white",
+    color: "white"
 };
+
+export const cartPosition: CSSProperties = {
+    width: window.innerWidth <= 395 ? "22.5rem" : "25rem",
+    top: window.innerWidth <= 395 ? "4.5rem" : "4rem",
+    left: window.innerWidth <= 395 ? "1.15rem" : "1.5rem",
+}

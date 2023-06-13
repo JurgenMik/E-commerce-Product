@@ -3,13 +3,14 @@ import './Navigation.scss';
 import Logo from '../assets/logo.svg';
 import Avatar from '../assets/image-avatar.png';
 import {BsCart3} from 'react-icons/bs';
-import {anchorTitles} from "../../utils";
 import {Product} from "../../interface";
-import {cartNotificationStyle} from "../../utils";
+import {cartNotificationStyle, anchorTitles} from "../../utils";
+import Cart from "../Cart/Cart";
 
 function Navigation({cart}: { cart: Product[] }) {
 
     const [hoveredLink, setHovered] = useState<string>();
+    const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
 
     const handleHoveredLink = (e: React.MouseEvent<HTMLAnchorElement>) => {
         setHovered(e.currentTarget.innerHTML);
@@ -21,6 +22,10 @@ function Navigation({cart}: { cart: Product[] }) {
 
     const handleResetHoveredState = () => {
         setHovered('');
+    }
+
+    const handleOpenCartModal = () => {
+        setIsCartOpen(!isCartOpen);
     }
 
     return (
@@ -54,11 +59,18 @@ function Navigation({cart}: { cart: Product[] }) {
                 }
                 <BsCart3
                     id="cart"
+                    onClick={handleOpenCartModal}
                 />
                 <img
+                    id="avatar"
                     src={Avatar}
                     alt="profile"
                 />
+                {isCartOpen &&
+                    <Cart
+                        cart={cart}
+                    />
+                }
             </div>
         </div>
     )

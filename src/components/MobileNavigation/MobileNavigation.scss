@@ -63,12 +63,11 @@
 }
 
 .mobileInteractive-container {
-  position: relative;
   width: 25%;
   margin-right: 1rem;
   display: flex;
   align-items: center;
-  img {
+  #avatar {
     height: 2.25rem;
     width: 2.25rem;
     margin-left: 1.5rem;
