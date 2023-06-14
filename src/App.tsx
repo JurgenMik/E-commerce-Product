@@ -47,10 +47,12 @@ function App() {
         {screen ?
             <MobileNavigation
                 cart={cart}
+                setCartItems={setCartItems}
             />
             :
             <Navigation
                 cart={cart}
+                setCartItems={setCartItems}
             />
         }
         <div className="product-content-container">

@@ -4,7 +4,19 @@ import {Product} from "../../interface";
 import {RiDeleteBin5Fill} from 'react-icons/ri';
 import {cartPosition} from "../../utils";
 
-function Cart({cart}: { cart: Product[] }) {
+interface Props {
+    cart: Product[],
+    setCartItems: (item: any) => void
+}
+
+function Cart({cart, setCartItems}: Props) {
+
+    const handleDeleteCartItem = (targetItem: string) => {
+        const updatedCartItems = cart.filter((cart: Product) => cart.product_id !== targetItem);
+
+        setCartItems(updatedCartItems);
+    }
+
     return (
         <div className="main-cart-container" style={cartPosition}>
             <div className="cart-header">
@@ -38,6 +50,9 @@ function Cart({cart}: { cart: Product[] }) {
                                         </div>
                                     </div>
                                     <RiDeleteBin5Fill
+                                        onClick={() =>
+                                            handleDeleteCartItem(item.product_id)
+                                        }
                                         id="item-delete"
                                     />
                                 </div>

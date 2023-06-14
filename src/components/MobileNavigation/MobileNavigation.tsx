@@ -9,7 +9,12 @@ import {Product} from "../../interface";
 import {cartNotificationStyle, anchorTitles} from "../../utils";
 import Cart from "../Cart/Cart";
 
-function MobileNavigation({cart}: { cart: Product[] }) {
+interface Props {
+    cart: Product[],
+    setCartItems: (item: any) => void
+}
+
+function MobileNavigation({cart, setCartItems}: Props) {
 
     const [openSidebarMenu, setOpenSidebarMenu] = useState<boolean>(false);
     const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
@@ -82,6 +87,7 @@ function MobileNavigation({cart}: { cart: Product[] }) {
                 {isCartOpen &&
                     <Cart
                         cart={cart}
+                        setCartItems={setCartItems}
                     />
                 }
             </div>

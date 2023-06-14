@@ -7,7 +7,12 @@ import {Product} from "../../interface";
 import {cartNotificationStyle, anchorTitles} from "../../utils";
 import Cart from "../Cart/Cart";
 
-function Navigation({cart}: { cart: Product[] }) {
+interface Props {
+    cart: Product[],
+    setCartItems: (item: any) => void
+}
+
+function Navigation({cart, setCartItems}: Props) {
 
     const [hoveredLink, setHovered] = useState<string>();
     const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
@@ -69,6 +74,7 @@ function Navigation({cart}: { cart: Product[] }) {
                 {isCartOpen &&
                     <Cart
                         cart={cart}
+                        setCartItems={setCartItems}
                     />
                 }
             </div>
