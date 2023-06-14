@@ -4,24 +4,40 @@ import Navigation from './components/Navigation/Navigation';
 import MobileNavigation from './components/MobileNavigation/MobileNavigation';
 import {FaMinus, FaPlus} from 'react-icons/fa';
 import {BsCart3} from 'react-icons/bs';
+import {Product} from "./interface";
+import Thumbnail from './components/assets/product/image-product-1-thumbnail.jpg';
 
 function App() {
 
-    const [counter, setProductCounter] = useState<number>(0);
+    const [cart, setCartItems] = useState<Product[]>([]);
+    const [product, setProductProps] = useState<Product>({
+        product_id: 'Fall Limited Edition Sneakers',
+        product_thumbnail: Thumbnail,
+        price: 125,
+        quantity: 0,
+    });
 
     const handleProductCounterChange = (actionType: string) => {
             switch (actionType) {
                 case 'increment': {
-                    setProductCounter(counter + 1);
+                    setProductProps({...product, quantity: ++product.quantity});
                     break;
                 }
                 case 'decrement': {
-                    if (counter > 0 ) {
-                        setProductCounter(counter - 1);
+                    if (product.quantity > 0) {
+                        setProductProps({...product, quantity: --product.quantity});
                     }
                     break;
                 }
             }
+    }
+
+    const handleAddProductToCart = () => {
+        const isAlreadyAdded = cart.find((products: Product) => products.product_id === product.product_id);
+
+        if (product.quantity && !isAlreadyAdded) {
+            setCartItems([...cart, product]);
+        }
     }
 
     const screen = window.innerWidth <= 395;
@@ -29,9 +45,15 @@ function App() {
   return (
     <div className="main-container">
         {screen ?
-            <MobileNavigation />
+            <MobileNavigation
+                cart={cart}
+                setCartItems={setCartItems}
+            />
             :
-            <Navigation />
+            <Navigation
+                cart={cart}
+                setCartItems={setCartItems}
+            />
         }
         <div className="product-content-container">
             <div className="product-images">
@@ -64,7 +86,7 @@ function App() {
                                 handleProductCounterChange('decrement')
                             }
                         />
-                        <span>{counter}</span>
+                        <span>{product.quantity}</span>
                         <FaPlus
                             id="plus-minus"
                             onClick={() =>
@@ -72,7 +94,7 @@ function App() {
                             }
                         />
                     </div>
-                    <button>
+                    <button onClick={handleAddProductToCart}>
                         <BsCart3 id="addToCart" />
                         Add to cart
                     </button>

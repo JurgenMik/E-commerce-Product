@@ -3,11 +3,19 @@ import './Navigation.scss';
 import Logo from '../assets/logo.svg';
 import Avatar from '../assets/image-avatar.png';
 import {BsCart3} from 'react-icons/bs';
-import {anchorTitles} from "../../utils";
+import {Product} from "../../interface";
+import {cartNotificationStyle, anchorTitles} from "../../utils";
+import Cart from "../Cart/Cart";
 
-function Navigation() {
+interface Props {
+    cart: Product[],
+    setCartItems: (item: any) => void
+}
+
+function Navigation({cart, setCartItems}: Props) {
 
     const [hoveredLink, setHovered] = useState<string>();
+    const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
 
     const handleHoveredLink = (e: React.MouseEvent<HTMLAnchorElement>) => {
         setHovered(e.currentTarget.innerHTML);
@@ -19,6 +27,10 @@ function Navigation() {
 
     const handleResetHoveredState = () => {
         setHovered('');
+    }
+
+    const handleOpenCartModal = () => {
+        setIsCartOpen(!isCartOpen);
     }
 
     return (
@@ -45,13 +57,26 @@ function Navigation() {
                 </a>
             </div>
             <div className="interactive-container">
+                {cart.length !== 0 &&
+                    <span style={cartNotificationStyle}>
+                        {cart.length}
+                    </span>
+                }
                 <BsCart3
                     id="cart"
+                    onClick={handleOpenCartModal}
                 />
                 <img
+                    id="avatar"
                     src={Avatar}
                     alt="profile"
                 />
+                {isCartOpen &&
+                    <Cart
+                        cart={cart}
+                        setCartItems={setCartItems}
+                    />
+                }
             </div>
         </div>
     )

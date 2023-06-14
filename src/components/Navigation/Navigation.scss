@@ -35,6 +35,7 @@
 }
 
 .interactive-container {
+  position: relative;
   width: 25%;
   display: flex;
   justify-content: flex-end;
@@ -42,7 +43,7 @@
   margin-left: auto;
   float: right;
   transition: outline 0.3s;
-  img {
+  #avatar {
     width: 3rem;
     height: 3rem;
     margin-left: 3rem;

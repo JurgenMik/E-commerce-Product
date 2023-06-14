@@ -5,11 +5,19 @@ import Avatar from '../assets/image-avatar.png';
 import {BsCart3} from 'react-icons/bs';
 import {GiHamburgerMenu} from 'react-icons/gi';
 import {IoMdClose} from 'react-icons/io';
-import {anchorTitles} from "../../utils";
+import {Product} from "../../interface";
+import {cartNotificationStyle, anchorTitles} from "../../utils";
+import Cart from "../Cart/Cart";
 
-function MobileNavigation() {
+interface Props {
+    cart: Product[],
+    setCartItems: (item: any) => void
+}
+
+function MobileNavigation({cart, setCartItems}: Props) {
 
     const [openSidebarMenu, setOpenSidebarMenu] = useState<boolean>(false);
+    const [isCartOpen, setIsCartOpen] = useState<boolean>(false);
 
     const handleSidebarMenuPopup = () => {
         setOpenSidebarMenu(true);
@@ -17,6 +25,10 @@ function MobileNavigation() {
 
     const handleSidebarMenuClose = () => {
         setOpenSidebarMenu(false);
+    }
+
+    const handleOpenCartModal = () => {
+        setIsCartOpen(!isCartOpen);
     }
 
     return (
@@ -58,13 +70,26 @@ function MobileNavigation() {
                 />
             </div>
             <div className="mobileInteractive-container">
+                {cart.length !== 0 &&
+                    <span style={cartNotificationStyle}>
+                        {cart.length}
+                    </span>
+                }
                 <BsCart3
                     id="cart"
+                    onClick={handleOpenCartModal}
                 />
                 <img
+                    id="avatar"
                     src={Avatar}
                     alt="profile"
                 />
+                {isCartOpen &&
+                    <Cart
+                        cart={cart}
+                        setCartItems={setCartItems}
+                    />
+                }
             </div>
         </div>
     )
