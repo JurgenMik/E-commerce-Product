@@ -70,7 +70,7 @@ function MobileNavigation({cart, setCartItems}: Props) {
                 />
             </div>
             <div className="mobileInteractive-container">
-                {cart.length !== 0 &&
+                {cart.length !== 0 && !isCartOpen &&
                     <span style={cartNotificationStyle}>
                         {cart.length}
                     </span>

@@ -57,7 +57,7 @@ function Navigation({cart, setCartItems}: Props) {
                 </a>
             </div>
             <div className="interactive-container">
-                {cart.length !== 0 &&
+                {cart.length !== 0 && !isCartOpen &&
                     <span style={cartNotificationStyle}>
                         {cart.length}
                     </span>
