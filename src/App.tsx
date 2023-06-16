@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './App.scss';
 import Navigation from './components/Navigation/Navigation';
 import MobileNavigation from './components/MobileNavigation/MobileNavigation';
+import ProductFeature from "./components/ProductFeature/ProductFeature";
 import {FaMinus, FaPlus} from 'react-icons/fa';
 import {BsCart3} from 'react-icons/bs';
 import {Product} from "./interface";
@@ -57,7 +58,7 @@ function App() {
         }
         <div className="product-content-container">
             <div className="product-images">
-
+                <ProductFeature />
             </div>
             <div className="product-details">
                 <div className="heading">
