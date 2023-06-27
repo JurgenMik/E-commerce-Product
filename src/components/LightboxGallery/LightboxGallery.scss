@@ -1,0 +1,11 @@
+@import '../../variables/variables.scss';
+
+.main-lightbox-container {
+  position: absolute;
+  width: 45rem;
+  top: 7.5rem;
+  left: 35%;
+  box-shadow: 0 0 0 1250px $BoxShadow;
+  background: $BoxShadow;
+  z-index: 10;
+}
