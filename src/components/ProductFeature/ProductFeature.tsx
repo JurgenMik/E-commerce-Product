@@ -27,6 +27,7 @@ function ProductFeature() {
             {isLightboxOpen &&
                 <LightboxGallery
                     selectedThumbnail={selectedThumbnail}
+                    setIsLightbox={setIsLightbox}
                 />
             }
         </>

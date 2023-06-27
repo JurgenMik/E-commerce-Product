@@ -1,15 +1,30 @@
 import React from 'react';
 import './LightboxGallery.scss';
 import ProductShowcase from "../ProductShowcase";
+import {RiCloseFill} from 'react-icons/ri';
 
-function LightboxGallery({selectedThumbnail}: {selectedThumbnail: string}) {
+interface Props {
+    selectedThumbnail: string,
+    setIsLightbox: (isOpen: boolean) => void
+}
+
+function LightboxGallery({selectedThumbnail, setIsLightbox}: Props) {
+
+    const handleCloseLightboxGallery = () => {
+        setIsLightbox(false);
+    }
+
     return (
         <div className="main-lightbox-container">
-           <ProductShowcase
-               selectedThumbnail={selectedThumbnail}
-               handleProductFeatureChange={() => {}}
-               handleOpenLightbox={() => {}}
-           />
+            <RiCloseFill
+                id="close"
+                onClick={handleCloseLightboxGallery}
+            />
+            <ProductShowcase
+                selectedThumbnail={selectedThumbnail}
+                handleProductFeatureChange={() => {}}
+                handleOpenLightbox={() => {}}
+            />
         </div>
     )
 }

@@ -8,4 +8,15 @@
   box-shadow: 0 0 0 1250px $BoxShadow;
   background: $BoxShadow;
   z-index: 10;
+  #close {
+    position: absolute;
+    left: 82.5%;
+    color: white;
+    font-size: 2.5rem;
+    z-index: 15;
+    &:hover {
+      cursor: pointer;
+      color: $GrayishBlue;
+    }
+  }
 }
