@@ -1,12 +1,5 @@
 import React from 'react';
-import ThumbnailOne from "./assets/product/image-product-1-thumbnail.jpg";
-import FeatureOne from "./assets/product/image-product-1.jpg";
-import ThumbnailTwo from "./assets/product/image-product-2-thumbnail.jpg";
-import FeatureTwo from "./assets/product/image-product-2.jpg";
-import ThumbnailThree from "./assets/product/image-product-3-thumbnail.jpg";
-import FeatureThree from "./assets/product/image-product-3.jpg";
-import ThumbnailFour from "./assets/product/image-product-4-thumbnail.jpg";
-import FeatureFour from "./assets/product/image-product-4.jpg";
+import {productImages} from "../utils";
 
 interface Props {
     selectedThumbnail: string,
@@ -15,26 +8,6 @@ interface Props {
 }
 
 function ProductShowcase({selectedThumbnail, handleProductFeatureChange, handleOpenLightbox}: Props) {
-
-    const productImages = [
-        {
-            product_thumbnail: ThumbnailOne,
-            product_feature: FeatureOne
-        },
-        {
-            product_thumbnail: ThumbnailTwo,
-            product_feature: FeatureTwo
-        },
-        {
-            product_thumbnail: ThumbnailThree,
-            product_feature: FeatureThree
-        },
-        {
-            product_thumbnail: ThumbnailFour,
-            product_feature: FeatureFour
-        }
-    ];
-
     return (
         <div className="main-feature-container">
             <div className="product-feature">

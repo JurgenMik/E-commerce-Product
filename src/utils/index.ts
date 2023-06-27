@@ -1,4 +1,12 @@
 import {CSSProperties} from "react";
+import ThumbnailOne from "../components/assets/product/image-product-1-thumbnail.jpg";
+import FeatureOne from "../components/assets/product/image-product-1.jpg";
+import ThumbnailTwo from "../components/assets/product/image-product-2-thumbnail.jpg";
+import FeatureTwo from "../components/assets/product/image-product-2.jpg";
+import ThumbnailThree from "../components/assets/product/image-product-3-thumbnail.jpg";
+import FeatureThree from "../components/assets/product/image-product-3.jpg";
+import ThumbnailFour from "../components/assets/product/image-product-4-thumbnail.jpg";
+import FeatureFour from "../components/assets/product/image-product-4.jpg";
 
 export const anchorTitles = [
     "Learn more about our collections",
@@ -27,3 +35,22 @@ export const cartPosition: CSSProperties = {
     top: window.innerWidth <= 395 ? "4.5rem" : "4rem",
     left: window.innerWidth <= 395 ? "1.15rem" : "1.5rem",
 }
+
+export const productImages = [
+    {
+        product_thumbnail: ThumbnailOne,
+        product_feature: FeatureOne
+    },
+    {
+        product_thumbnail: ThumbnailTwo,
+        product_feature: FeatureTwo
+    },
+    {
+        product_thumbnail: ThumbnailThree,
+        product_feature: FeatureThree
+    },
+    {
+        product_thumbnail: ThumbnailFour,
+        product_feature: FeatureFour
+    }
+];

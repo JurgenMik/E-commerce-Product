@@ -28,6 +28,7 @@ function ProductFeature() {
                 <LightboxGallery
                     selectedThumbnail={selectedThumbnail}
                     setIsLightbox={setIsLightbox}
+                    setSelected={setSelected}
                 />
             }
         </>
