@@ -3,11 +3,15 @@
 .main-cart-container {
   position: absolute;
   background: $White;
-  font-family: Kumbh Sans;
+  font-family: Kumbh Sans, serif;
   border-radius: 0.25rem;
   box-shadow: rgba(0, 0, 0, 0.19) 0 8px 16px, rgba(0, 0, 0, 0.1) 0 6px 6px;
   height: 15rem;
   display: flex;
+  @media (max-width: $small-screen) {
+    z-index: 5;
+    border-radius: 0.75rem;
+  }
   flex-direction: column;
   .cart-header {
     width: 100%;
@@ -89,7 +93,7 @@
       border-radius: 0.50rem;
       border: none;
       background: $Orange;
-      font-family: Kumbh Sans;
+      font-family: Kumbh Sans, serif;
       font-weight: 700;
       font-size: 1rem;
       color: $White;
