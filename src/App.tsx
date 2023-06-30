@@ -58,7 +58,9 @@ function App() {
         }
         <div className="product-content-container">
             <div className="product-images">
-                <ProductFeature />
+                <ProductFeature
+                    screen={screen}
+                />
             </div>
             <div className="product-details">
                 <div className="heading">
