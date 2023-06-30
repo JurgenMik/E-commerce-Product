@@ -3,43 +3,21 @@ import './LightboxGallery.scss';
 import ProductShowcase from "../ProductShowcase";
 import {RiCloseFill} from 'react-icons/ri';
 import {FaChevronRight, FaChevronLeft} from 'react-icons/fa';
-import {productImages} from "../../utils";
+import {handleCarouselImageChange} from "../../utils";
 
 interface Props {
     selectedThumbnail: string,
     setIsLightbox: (isOpen: boolean) => void,
-    setSelected: (selected: string) => void
+    setSelected: (selected: string) => void,
+    screen: boolean
 }
 
-function LightboxGallery({selectedThumbnail, setIsLightbox, setSelected}: Props) {
+function LightboxGallery({selectedThumbnail, setIsLightbox, setSelected, screen}: Props) {
 
     const [currentImage, setCurrentImage] = useState<number>(0);
 
     const handleCloseLightboxGallery = () => {
         setIsLightbox(false);
-    }
-
-    const handleCarouselImageChange = (direction: string) => {
-        switch (direction) {
-            case 'left': {
-                if (currentImage) {
-                    const newImageIndex = currentImage - 1;
-                    setCurrentImage(newImageIndex);
-
-                    setSelected(productImages[newImageIndex].product_feature);
-                }
-                return;
-            }
-            case 'right': {
-                if (currentImage < productImages.length -1) {
-                    const newImageIndex = currentImage + 1;
-                    setCurrentImage(newImageIndex);
-
-                    setSelected(productImages[newImageIndex].product_feature);
-                }
-                return;
-            }
-        }
     }
 
     return (
@@ -53,7 +31,7 @@ function LightboxGallery({selectedThumbnail, setIsLightbox, setSelected}: Props)
                     <FaChevronLeft
                         id="selector"
                         onClick={() =>
-                            handleCarouselImageChange('left')
+                            handleCarouselImageChange('left', currentImage, setCurrentImage, setSelected)
                         }
                     />
                 </span>
@@ -61,7 +39,7 @@ function LightboxGallery({selectedThumbnail, setIsLightbox, setSelected}: Props)
                     <FaChevronRight
                         id="selector"
                         onClick={() =>
-                            handleCarouselImageChange('right')
+                            handleCarouselImageChange('right', currentImage, setCurrentImage, setSelected)
                         }
                     />
                 </span>
@@ -70,6 +48,7 @@ function LightboxGallery({selectedThumbnail, setIsLightbox, setSelected}: Props)
                 selectedThumbnail={selectedThumbnail}
                 handleProductFeatureChange={() => {}}
                 handleOpenLightbox={() => {}}
+                screen={screen}
             />
         </div>
     )
