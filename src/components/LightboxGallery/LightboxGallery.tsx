@@ -3,7 +3,7 @@ import './LightboxGallery.scss';
 import ProductShowcase from "../ProductShowcase";
 import {RiCloseFill} from 'react-icons/ri';
 import {FaChevronRight, FaChevronLeft} from 'react-icons/fa';
-import {handleCarouselImageChange} from "../../utils";
+import {handleCarouselImageChange} from "../../utils/carouselUtils";
 
 interface Props {
     selectedThumbnail: string,

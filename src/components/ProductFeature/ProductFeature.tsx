@@ -4,7 +4,7 @@ import FeatureOne from '../assets/product/image-product-1.jpg';
 import ProductShowcase from "../ProductShowcase";
 import LightboxGallery from "../LightboxGallery/LightboxGallery";
 import {FaChevronLeft, FaChevronRight} from "react-icons/fa";
-import {handleCarouselImageChange} from "../../utils";
+import {handleCarouselImageChange} from "../../utils/carouselUtils";
 
 function ProductFeature({screen}: {screen: boolean}) {
 
