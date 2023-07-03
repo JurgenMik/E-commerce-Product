@@ -1,9 +1,8 @@
 import React, {useState} from 'react';
 import './LightboxGallery.scss';
 import ProductShowcase from "../ProductShowcase";
+import ImageSelector from "../ImageSelector";
 import {RiCloseFill} from 'react-icons/ri';
-import {FaChevronRight, FaChevronLeft} from 'react-icons/fa';
-import {handleCarouselImageChange} from "../../utils/carouselUtils";
 
 interface Props {
     selectedThumbnail: string,
@@ -26,24 +25,12 @@ function LightboxGallery({selectedThumbnail, setIsLightbox, setSelected, screen}
                 id="close"
                 onClick={handleCloseLightboxGallery}
             />
-            <div className="selector-container">
-                <span>
-                    <FaChevronLeft
-                        id="selector"
-                        onClick={() =>
-                            handleCarouselImageChange('left', currentImage, setCurrentImage, setSelected)
-                        }
-                    />
-                </span>
-                <span>
-                    <FaChevronRight
-                        id="selector"
-                        onClick={() =>
-                            handleCarouselImageChange('right', currentImage, setCurrentImage, setSelected)
-                        }
-                    />
-                </span>
-            </div>
+            <ImageSelector
+                currentImage={currentImage}
+                setCurrentImage={setCurrentImage}
+                setSelected={setSelected}
+                device={''}
+            />
             <ProductShowcase
                 selectedThumbnail={selectedThumbnail}
                 handleProductFeatureChange={() => {}}
