@@ -3,8 +3,7 @@ import './ProductFeature.scss';
 import FeatureOne from '../assets/product/image-product-1.jpg';
 import ProductShowcase from "../ProductShowcase";
 import LightboxGallery from "../LightboxGallery/LightboxGallery";
-import {FaChevronLeft, FaChevronRight} from "react-icons/fa";
-import {handleCarouselImageChange} from "../../utils/carouselUtils";
+import ImageSelector from "../ImageSelector";
 
 function ProductFeature({screen}: {screen: boolean}) {
 
@@ -23,24 +22,12 @@ function ProductFeature({screen}: {screen: boolean}) {
     return (
         <>
             {screen &&
-                <div className="mobile-selector-container">
-                    <span>
-                        <FaChevronLeft
-                            id="selector"
-                            onClick={() =>
-                                handleCarouselImageChange('left', currentImage, setCurrentImage, setSelected)
-                            }
-                        />
-                    </span>
-                        <span>
-                        <FaChevronRight
-                            id="selector"
-                            onClick={() =>
-                                handleCarouselImageChange('right', currentImage, setCurrentImage, setSelected)
-                            }
-                        />
-                    </span>
-                </div>
+                <ImageSelector
+                    currentImage={currentImage}
+                    setCurrentImage={setCurrentImage}
+                    setSelected={setSelected}
+                    device={'mobile'}
+                />
             }
             <ProductShowcase
                 selectedThumbnail={selectedThumbnail}
