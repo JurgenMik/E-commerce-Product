@@ -1,6 +1,7 @@
 import React, {useState} from 'react';
 import './ProductFeature.scss';
 import FeatureOne from '../assets/product/image-product-1.jpg';
+import {productImages} from "../../utils";
 import ProductShowcase from "../ProductShowcase";
 import LightboxGallery from "../LightboxGallery/LightboxGallery";
 import ImageSelector from "../ImageSelector";
@@ -13,6 +14,9 @@ function ProductFeature({screen}: {screen: boolean}) {
 
     const handleProductFeatureChange = (selected: string) => {
         setSelected(selected);
+
+        const currentFeatureIndex = productImages.findIndex(itemShowcase => itemShowcase.product_feature === selected);
+        setCurrentImage(currentFeatureIndex);
     }
 
     const handleOpenLightboxGallery = () => {
@@ -37,6 +41,8 @@ function ProductFeature({screen}: {screen: boolean}) {
             />
             {isLightboxOpen && !screen &&
                 <LightboxGallery
+                    currentImage={currentImage}
+                    setCurrentImage={setCurrentImage}
                     selectedThumbnail={selectedThumbnail}
                     setIsLightbox={setIsLightbox}
                     setSelected={setSelected}

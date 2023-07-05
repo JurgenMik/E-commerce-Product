@@ -20,7 +20,7 @@ function ProductShowcase({selectedThumbnail, handleProductFeatureChange, handleO
             </div>
             {!screen &&
                 <div className="product-images">
-                    {productImages.map((image: { product_thumbnail: string, product_feature: string }, index: number) => {
+                    {productImages.map((image: {product_thumbnail: string, product_feature: string}, index: number) => {
                         return (
                             <div className="thumbnail-container" key={index}>
                                 <img
