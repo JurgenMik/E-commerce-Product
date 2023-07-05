@@ -1,19 +1,19 @@
-import React, {useState} from 'react';
+import React from 'react';
 import './LightboxGallery.scss';
 import ProductShowcase from "../ProductShowcase";
 import ImageSelector from "../ImageSelector";
 import {RiCloseFill} from 'react-icons/ri';
 
 interface Props {
+    currentImage: number,
+    setCurrentImage: (index: number) => void,
     selectedThumbnail: string,
     setIsLightbox: (isOpen: boolean) => void,
     setSelected: (selected: string) => void,
     screen: boolean
 }
 
-function LightboxGallery({selectedThumbnail, setIsLightbox, setSelected, screen}: Props) {
-
-    const [currentImage, setCurrentImage] = useState<number>(0);
+function LightboxGallery({currentImage, setCurrentImage, selectedThumbnail, setIsLightbox, setSelected, screen}: Props) {
 
     const handleCloseLightboxGallery = () => {
         setIsLightbox(false);
