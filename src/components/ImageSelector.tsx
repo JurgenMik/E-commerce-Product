@@ -12,7 +12,7 @@ interface Props {
 function ImageSelector({currentImage, setCurrentImage, setSelected, device}: Props) {
     return (
         <div className={device === 'mobile' ? 'mobile-selector-container' : 'selector-container'}>
-            <span>
+            <span className={currentImage === 0 ? 'selection-end' : ''}>
                 <FaChevronLeft
                     id="selector"
                     onClick={() =>
@@ -20,7 +20,7 @@ function ImageSelector({currentImage, setCurrentImage, setSelected, device}: Pro
                     }
                 />
             </span>
-            <span>
+            <span className={currentImage === 3 ? 'selection-end' : ''}>
                 <FaChevronRight
                     id="selector"
                     onClick={() =>

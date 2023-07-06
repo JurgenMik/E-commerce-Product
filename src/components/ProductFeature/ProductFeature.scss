@@ -87,4 +87,10 @@
     background: $White;
     border-radius: 50%;
   }
+  .selection-end {
+    opacity: 0.6;
+    #selector:hover {
+      cursor: none;
+    }
+  }
 }
